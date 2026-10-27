@@ -1,0 +1,142 @@
+:host {
+    --sf-blue:   #00A1E0;
+    --sf-cyan:   #06B6D4;
+    --sf-deep:   #0B0E1A;
+    --sf-card:   #0D1426;
+    --sf-border: rgba(0, 161, 224, 0.18);
+    --sf-text:   #E8F4FD;
+    --sf-muted:  #7A9BB5;
+    --sf-accent: #1FC0F1;
+    --grad:      linear-gradient(135deg, #00A1E0, #06B6D4);
+    display:     block;
+    background:  #0B0E1A;
+    min-height:  100vh;
+    margin:      0 !important;
+    padding:     0 !important;
+    width:       100vw;
+    max-width:   100vw;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    box-sizing:  border-box;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.blog-root {
+    background:  var(--sf-deep);
+    color:       var(--sf-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height:  100vh;
+    line-height: 1.7;
+}
+
+.blog-main {
+    max-width: 1100px;
+    margin:    0 auto;
+    padding:   7rem 2rem 4rem;
+}
+
+.section-label {
+    font-size:       0.75rem;
+    font-weight:     600;
+    letter-spacing:  0.2em;
+    text-transform:  uppercase;
+    color:           var(--sf-accent);
+    margin-bottom:   0.5rem;
+}
+
+.section-title {
+    font-size:     clamp(1.8rem, 4vw, 2.8rem);
+    font-weight:   800;
+    letter-spacing:-0.02em;
+    margin-bottom: 2.5rem;
+}
+
+.loading-wrap {
+    display:         flex;
+    justify-content: center;
+    padding:         3rem 0;
+}
+
+.state-msg {
+    text-align: center;
+    color:      var(--sf-muted);
+    padding:    2rem 0;
+}
+
+.state-msg--error { color: #f87171; }
+
+.grid {
+    display:               grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:                   1.5rem;
+}
+
+.card {
+    background:    var(--sf-card);
+    border:        1px solid var(--sf-border);
+    border-radius: 12px;
+    overflow:      hidden;
+    cursor:        pointer;
+    transition:    transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.card:hover,
+.card:focus {
+    transform:    translateY(-4px);
+    box-shadow:   0 12px 32px rgba(0, 161, 224, 0.15);
+    border-color: var(--sf-blue);
+    outline:      none;
+}
+
+.card-image {
+    width:       100%;
+    height:      180px;
+    object-fit:  cover;
+    display:     block;
+    border-bottom: 1px solid var(--sf-border);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-date {
+    font-size:      0.72rem;
+    color:          var(--sf-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom:  0.4rem;
+}
+
+.card-title {
+    font-size:     1.1rem;
+    font-weight:   700;
+    line-height:   1.35;
+    color:         var(--sf-text);
+    margin-bottom: 0.5rem;
+}
+
+.card-summary {
+    font-size:     0.88rem;
+    color:         var(--sf-muted);
+    line-height:   1.55;
+    margin-bottom: 0.5rem;
+}
+
+.card-tags {
+    font-size:      0.72rem;
+    color:          var(--sf-accent);
+    letter-spacing: 0.04em;
+    margin:         0;
+}
+
+.footer {
+    text-align:   center;
+    padding:      2rem;
+    font-family:   'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size:    0.78rem;
+    color:        var(--sf-muted);
+    border-top:   1px solid var(--sf-border);
+    margin-top:   3rem;
+}

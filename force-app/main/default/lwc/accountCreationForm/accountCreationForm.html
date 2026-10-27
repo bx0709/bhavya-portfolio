@@ -1,0 +1,68 @@
+<template>
+    <lightning-card title="Create New Account" icon-name="standard:account">
+        <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+            <template lwc:if={isLoading}>
+                <div class="spinner-container">
+                    <lightning-spinner alternative-text="Saving account..." size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <div class="slds-form slds-form_stacked">
+                <lightning-input
+                    data-id="accountName"
+                    type="text"
+                    label="Account Name"
+                    value={accountName}
+                    required
+                    onchange={handleNameChange}
+                ></lightning-input>
+
+                <lightning-input
+                    data-id="phone"
+                    type="tel"
+                    label="Phone"
+                    value={phone}
+                    onchange={handlePhoneChange}
+                    class="slds-var-m-top_small"
+                ></lightning-input>
+
+                <lightning-combobox
+                    data-id="industry"
+                    label="Industry"
+                    value={industry}
+                    options={industryOptions}
+                    placeholder="--None--"
+                    onchange={handleIndustryChange}
+                    class="slds-var-m-top_small"
+                ></lightning-combobox>
+
+                <lightning-input
+                    data-id="annualRevenue"
+                    type="number"
+                    label="Annual Revenue"
+                    value={annualRevenue}
+                    formatter="currency"
+                    step="0.01"
+                    onchange={handleRevenueChange}
+                    class="slds-var-m-top_small"
+                ></lightning-input>
+            </div>
+        </div>
+
+        <div slot="footer">
+            <lightning-button
+                label="Save"
+                variant="brand"
+                onclick={handleSave}
+                disabled={isLoading}
+                class="slds-var-m-right_x-small"
+            ></lightning-button>
+            <lightning-button
+                label="Clear"
+                variant="neutral"
+                onclick={handleClear}
+                disabled={isLoading}
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>

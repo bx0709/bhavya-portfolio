@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Featured_Image_URL__c</fullName>
+    <description>Optional card/header image, e.g. hosted in a public Static Resource or CMS asset</description>
+    <label>Featured Image URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

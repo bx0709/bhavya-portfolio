@@ -1,0 +1,75 @@
+:host {
+    --sf-blue:   #00A1E0;
+    --sf-cyan:   #06B6D4;
+    --sf-navy:   #032D60;
+    --sf-deep:   #0B0E1A;
+    --sf-text:   #E8F4FD;
+    --sf-muted:  #7A9BB5;
+    --sf-accent: #1FC0F1;
+    --sf-border: rgba(0, 161, 224, 0.18);
+    --grad:      linear-gradient(135deg, #00A1E0, #06B6D4);
+    display:  block;
+    position: static;
+    margin:   0;
+    padding:  0;
+}
+
+.nav {
+    position:        fixed;
+    top: 0; left: 0; right: 0;
+    z-index:         100;
+    padding:         1rem 3rem;
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    background:      rgba(3, 7, 18, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom:   1px solid var(--sf-border);
+}
+
+.nav-logo {
+    font-weight:     800;
+    font-size:       1.1rem;
+    letter-spacing:  0.04em;
+    background:      var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor:          pointer;
+    text-decoration: none;
+}
+
+.nav-links {
+    display:    flex;
+    gap:        2rem;
+    list-style: none;
+    margin:     0;
+    padding:    0;
+}
+
+.nav-links a {
+    font-size:       0.85rem;
+    font-weight:     500;
+    letter-spacing:  0.08em;
+    text-transform:  uppercase;
+    color:           var(--sf-muted);
+    text-decoration: none;
+    transition:      color 0.2s;
+}
+
+.nav-links a:hover { color: var(--sf-accent); }
+
+.nav-cta {
+    font-size:       0.82rem;
+    font-weight:     500;
+    padding:         0.45rem 1.2rem;
+    background:      transparent;
+    border:          1px solid var(--sf-blue);
+    color:           var(--sf-blue);
+    border-radius:   4px;
+    cursor:          pointer;
+    text-decoration: none;
+    transition:      all 0.2s;
+}
+
+.nav-cta:hover { background: var(--sf-blue); color: #fff; }

@@ -1,0 +1,46 @@
+<template>
+    <div class="blog-root">
+        <c-portfolio-nav current-page="blog"></c-portfolio-nav>
+
+        <main class="post-main">
+            <div class="post-inner">
+                <button class="back-btn" onclick={handleBack}>← All Posts</button>
+
+                <template if:true={isLoading}>
+                    <div class="loading-wrap">
+                        <lightning-spinner alternative-text="Loading post" size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:true={hasError}>
+                    <p class="state-msg state-msg--error">Something went wrong loading this post.</p>
+                </template>
+
+                <template if:true={notFound}>
+                    <p class="state-msg">This post doesn't exist or isn't published yet.</p>
+                </template>
+
+                <template if:true={hasPost}>
+                    <article>
+                        <template if:true={post.imageUrl}>
+                            <img src={post.imageUrl} alt={post.title} class="hero-image" />
+                        </template>
+                        <p class="post-date">{post.publishedDate}</p>
+                        <h1 class="post-title">{post.title}</h1>
+                        <template if:true={post.tags}>
+                            <p class="post-tags">{post.tags}</p>
+                        </template>
+                        <lightning-formatted-rich-text
+                            value={post.content}
+                            class="post-content"
+                        ></lightning-formatted-rich-text>
+                    </article>
+                </template>
+            </div>
+        </main>
+
+        <footer class="footer">
+            © 2026 Bhavya Gulati · Salesforce Developer · Gurugram, Haryana
+        </footer>
+    </div>
+</template>

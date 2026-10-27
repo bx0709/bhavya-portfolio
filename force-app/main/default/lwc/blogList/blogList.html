@@ -1,0 +1,56 @@
+<template>
+    <div class="blog-root">
+        <c-portfolio-nav current-page="blog"></c-portfolio-nav>
+
+        <main class="blog-main">
+            <div class="section-inner">
+                <div class="section-label">Writing</div>
+                <h1 class="section-title">From the Blog</h1>
+
+                <template if:true={isLoading}>
+                    <div class="loading-wrap">
+                        <lightning-spinner alternative-text="Loading posts" size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:true={hasError}>
+                    <p class="state-msg state-msg--error">Couldn't load posts right now. Please try again later.</p>
+                </template>
+
+                <template if:false={isLoading}>
+                    <template if:false={hasPosts}>
+                        <p class="state-msg">No posts published yet — check back soon.</p>
+                    </template>
+
+                    <div class="grid">
+                        <template for:each={posts} for:item="post">
+                            <article
+                                key={post.id}
+                                class="card"
+                                data-slug={post.slug}
+                                onclick={handlePostClick}
+                                tabindex="0"
+                            >
+                                <template if:true={post.imageUrl}>
+                                    <img src={post.imageUrl} alt={post.title} class="card-image" />
+                                </template>
+                                <div class="card-body">
+                                    <p class="card-date">{post.publishedDate}</p>
+                                    <h3 class="card-title">{post.title}</h3>
+                                    <p class="card-summary">{post.summary}</p>
+                                    <template if:true={post.tags}>
+                                        <p class="card-tags">{post.tags}</p>
+                                    </template>
+                                </div>
+                            </article>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </main>
+
+        <footer class="footer">
+            © 2026 Bhavya Gulati · Salesforce Developer · Gurugram, Haryana
+        </footer>
+    </div>
+</template>
